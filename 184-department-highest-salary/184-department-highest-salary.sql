@@ -1,5 +1,6 @@
 # Write your MySQL query statement below
 
-SELECT Department.Name AS Department, e1.Name AS Employee, e1.Salary AS Salary
-FROM Department JOIN Employee e1 ON Department.Id = e1.DepartmentId
-WHERE e1.Salary = (SELECT Max(Salary) FROM Employee e2 WHERE e2.DepartmentId = e1.DepartmentId);
+select dep.name as Department, emp1.name as Employee, emp1.salary as Salary from employee as emp1
+inner join department as dep
+on emp1.departmentId = dep.Id
+where emp1.salary = (select max(salary) from employee as emp2 where departmentid = emp1.departmentid);
